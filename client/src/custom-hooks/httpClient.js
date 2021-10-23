@@ -8,7 +8,7 @@ export const useHttpClient = () => {
   const sendRequest = useCallback(
     async (url, method = 'GET', data = null, headers = {}) => {
       setIsLoading(true);
-      axios.defaults.baseURL = 'http://localhost:5000/api';
+      axios.defaults.baseURL = 'https://itask-webdev.herokuapp.com/';
 
       try {
         const response = await axios({

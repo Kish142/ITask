@@ -1,11 +1,14 @@
 import React, { useEffect, useContext } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import LoginPage from './pages/auth/LoginPage';
-import RegisterPage from './pages/auth/RegisterPage';
-import Dashboard from './pages/dashboard/Dashboard';
-
 import { UserContext } from './components/context/currentUser';
+
+import LoadingSpinner from './components/loading-spinner/LoadingSpinner';
+
+// REACT LAZY LOAD METHOD
+const LoginPage = React.lazy(() => import('./pages/auth/LoginPage'));
+const RegisterPage = React.lazy(() => import('./pages/auth/RegisterPage'));
+const Dashboard = React.lazy(() => import('./pages/dashboard/Dashboard'));
 
 const App = () => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useContext(UserContext);
@@ -22,28 +25,32 @@ const App = () => {
 
   return (
     <div className='app'>
-      <Switch>
-        <Route
-          exact
-          path='/register/*'
-          render={() =>
-            !isUserLoggedIn ? <RegisterPage /> : <Redirect to='/' />
-          }
-        />
-        <Route
-          exact
-          path='/login'
-          render={() => (!isUserLoggedIn ? <LoginPage /> : <Redirect to='/' />)}
-        />
-        <Route
-          exact
-          path='/'
-          render={() =>
-            isUserLoggedIn ? <Dashboard /> : <Redirect to='/login' />
-          }
-        />
-        <Route path='*' render={() => 'No Page Found'} />
-      </Switch>
+      <React.Suspense fallback={<LoadingSpinner />}>
+        <Switch>
+          <Route
+            exact
+            path='/register/*'
+            render={() =>
+              !isUserLoggedIn ? <RegisterPage /> : <Redirect to='/' />
+            }
+          />
+          <Route
+            exact
+            path='/login'
+            render={() =>
+              !isUserLoggedIn ? <LoginPage /> : <Redirect to='/' />
+            }
+          />
+          <Route
+            exact
+            path='/'
+            render={() =>
+              isUserLoggedIn ? <Dashboard /> : <Redirect to='/login' />
+            }
+          />
+          <Route path='*' render={() => 'No Page Found'} />
+        </Switch>
+      </React.Suspense>
     </div>
   );
 };
