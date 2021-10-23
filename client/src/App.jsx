@@ -5,7 +5,7 @@ import { UserContext } from './components/context/currentUser';
 
 import LoadingSpinner from './components/loading-spinner/LoadingSpinner';
 
-// REACT LAZY LOAD METHOD
+// REACT LAZY LOAD FEATURE
 const LoginPage = React.lazy(() => import('./pages/auth/LoginPage'));
 const RegisterPage = React.lazy(() => import('./pages/auth/RegisterPage'));
 const Dashboard = React.lazy(() => import('./pages/dashboard/Dashboard'));
