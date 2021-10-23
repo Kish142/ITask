@@ -1,0 +1,135 @@
+.announcement-section .announcement-wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .announcement-list {
+    margin-top: 1rem;
+    padding: 0 1rem;
+
+    .announcement-list-wrapper {
+      background-color: #fff;
+      padding: 1rem;
+      max-width: 900px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+
+      .row {
+        gap: 1rem;
+        justify-content: space-between;
+      }
+
+      .row .user-avatar {
+        .user-avatar-wrapper {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: rgb(130, 142, 214);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          p {
+            font-size: 1.3rem;
+            color: #fff;
+          }
+        }
+      }
+
+      .announcement-detail {
+        width: 100%;
+        .announcement-detail-wrapper {
+          width: 100%;
+          border-bottom: 0.5px solid rgba(161, 166, 169, 0.35);
+          padding-bottom: 1rem;
+          .name-comments-date {
+            gap: 1rem;
+            width: 100%;
+            .name {
+              font-size: 1.3rem;
+            }
+
+            .comments-date {
+              gap: 1rem;
+
+              .comments {
+                gap: 5px;
+                color: var(--light-text-color);
+
+                .icon {
+                  font-size: 1.2rem;
+                }
+
+                p {
+                  font-size: 1.1rem;
+                }
+              }
+              .date {
+                p {
+                  color: var(--light-text-color);
+                  white-space: nowrap;
+                }
+              }
+            }
+          }
+
+          .description {
+            margin-top: 0.5rem;
+            color: #183247;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            width: 100%;
+          }
+        }
+        .expiresOn-location {
+          gap: 1rem;
+          margin-top: 1rem;
+
+          .expires-on {
+            gap: 7px;
+
+            .icon {
+              color: var(--light-text-color);
+              font-size: 1.2rem;
+            }
+
+            .date {
+              white-space: nowrap;
+              color: var(--light-text-color);
+            }
+          }
+
+          .location {
+            gap: 7px;
+
+            .icon {
+              color: var(--light-text-color);
+              font-size: 1.2rem;
+
+              path {
+                stroke: var(--light-text-color);
+              }
+            }
+
+            .address {
+              color: var(--light-text-color);
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              line-height: 1.4;
+              width: 100px;
+
+              @media screen and (min-width: 450px) {
+                width: 200px;
+              }
+
+              @media screen and (min-width: 650px) {
+                width: 300px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

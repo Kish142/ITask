@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e5e5e5;
+}
+
+:root {
+  --primary-color: #3bc163;
+  --secondary-color: #284255;
+  --heading-color: #183247;
+  --light-text-color: #183247b2;
+
+  --danger: #c4250cb3;
+  --light-blue: #239cff;
+}
+
+.btn-loader {
+  background: currentcolor;
+  position: relative;
+  animation: btn-loader 1s ease-in-out infinite;
+  animation-delay: 0.4s;
+  width: .25em;
+  height: .5em;
+  margin: 0 .5em;
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: inherit;
+    animation: inherit;
+  }
+  &:before {
+    right: .5em;
+    animation-delay: 0.2s;
+  }
+  &:after {
+    left: .5em;
+    animation-delay: 0.6s;
+  }
+}
+
+@keyframes btn-loader {
+  0%,
+  100% {
+    box-shadow: 0 0 0 currentcolor, 0 0 0 currentcolor;
+  }
+  50% {
+    box-shadow: 0 -.25em 0 currentcolor, 0 .25em 0 currentcolor;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--heading-color);
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.274);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+// FORM INPUT GLOBAL STYLE
+.input-field {
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: var(--danger);
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.container-lg {
+  width: 90%;
+  margin: 0 auto;
+
+  @media screen and (min-width: 1220px) {
+    max-width: 1250px;
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+
+  &-ai-c {
+    align-items: center;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+}
+
+// TO REMOVE ARROW IN INPUT[TYPE='NUMBER']
+/* Chrome, Safari, Edge, Opera */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}

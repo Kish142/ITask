@@ -1,0 +1,33 @@
+.loading-spinner {
+  .loader-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999999;
+  }
+
+  .bg-overlay {
+    z-index: 999999;
+  }
+
+  .loader {
+    width: 4rem;
+    height: 4rem;
+    margin: 2rem;
+    border-radius: 50%;
+    border: 0.3rem solid rgba(#ffffff, 0.3);
+    border-top-color: var(--primary-color);
+    animation: 1.5s spin infinite linear;
+
+    &.multi {
+      border-bottom-color: #979fd0;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
